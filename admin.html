@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Saadat Notes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="admin-dashboard">
+
+    <!-- Loader will be shown by default and hidden by auth-guard.js when ready -->
+    <div id="loader" class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Admin Sidebar for Navigation -->
+    <aside class="admin-sidebar">
+        <h2>Admin Panel</h2>
+        <nav>
+            <ul>
+                <!-- "active" class indicates the current page -->
+                <li class="active"><a href="admin.html">Dashboard & Uploads</a></li>
+                <!-- You can add more links here in the future, e.g., for user management -->
+                <li><a href="index.html">View Main Site</a></li>
+            </ul>
+        </nav>
+        <button id="logout-btn-admin" class="logout-link">Logout</button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="admin-content">
+        <header class="admin-header">
+            <h1>Content Management</h1>
+            <p>Upload new content and manage existing entries.</p>
+        </header>
+        
+        <!-- Upload Form Container -->
+        <div class="admin-form-container">
+            <h2>Upload New Content</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="content-type">Content Type</label>
+                    <select id="content-type" name="content-type" required>
+                        <option>Class Lecture</option>
+                        <option>Hand Note</option>
+                        <option>NUH Question</option>
+                        <option>Routine</option>
+                        <option>Gallery Image</option>
+                        <option>Notice</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="title">Title / Subject</label>
+                    <input type="text" id="title" placeholder="e.g., Complex Analysis - Chapter 3" required>
+                </div>
+                
+                 <div class="form-group">
+                    <label for="academic-year-admin">Target Academic Year</label>
+                    <select id="academic-year-admin" name="academic-year-admin" required>
+                        <option value="1">1st Year</option>
+                        <option value="2">2nd Year</option>
+                        <option value="3">3rd Year</option>
+                        <option value="4">Final Year</option>
+                        <option value="all">All Years (e.g., for Notices)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Short Description (Optional)</label>
+                    <textarea id="description" rows="3" placeholder="A brief summary of the content."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="content-file">Upload File (PDF/Image, max 5MB)</label>
+                    <input type="file" id="content-file" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Upload Content</button>
+                
+                <!-- This div will show the upload progress -->
+                <div id="upload-progress" class="upload-progress-bar" style="display:none;"></div>
+            </form>
+        </div>
+
+        <!-- Existing Content Table Container -->
+        <div class="admin-table-container">
+             <h2>Existing Content</h2>
+             <table>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Type</th>
+                        <th>Year</th>
+                        <th>Date Uploaded</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <!-- This table body will be filled dynamically by admin.js -->
+                <tbody id="content-table-body">
+                    <!-- Example of a loading state before JS populates it -->
+                    <tr>
+                        <td colspan="5" style="text-align:center;">Loading content...</td>
+                    </tr>
+                </tbody>
+             </table>
+        </div>
+    </main>
+
+    <!-- Firebase SDKs and custom scripts -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-storage.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

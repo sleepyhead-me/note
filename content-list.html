@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content - Saadat Notes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loader" class="loader-container"><div class="loader"></div></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><h1>Saadat Notes</h1></a>
+            <nav>
+                <a href="profile.html" class="profile-link">My Profile</a>
+                <button id="logout-btn" class="btn btn-outline">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2 id="content-title">Loading...</h2>
+        <div id="content-list-container" class="content-item-list">
+            <!-- Dynamic list items will be injected here -->
+        </div>
+    </main>
+    
+    <footer>...</footer>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="js/content-list.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Saadat Notes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="loader" class="loader-container"><div class="loader"></div></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><h1>Saadat Notes</h1></a>
+            <nav>
+                <!-- Search feature can be implemented later -->
+                <a href="profile.html" class="profile-link">My Profile</a>
+                <button id="logout-btn" class="btn btn-outline">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="welcome-section">
+            <h2 id="welcome-message">Welcome Back!</h2>
+            <p>You are viewing resources for: <strong id="year-display">...</strong></p>
+        </section>
+
+        <section class="content-grid">
+            <div class="card"><img src="assets/icons/lecture.svg" class="card-icon"><h3>Class Lectures</h3><p>Daily lectures from your professors.</p><a href="content-list.html?type=Class Lecture" class="btn btn-outline">View All</a></div>
+            <div class="card"><img src="assets/icons/notes.svg" class="card-icon"><h3>Hand Notes</h3><p>Detailed student-made notes.</p><a href="content-list.html?type=Hand Note" class="btn btn-outline">View All</a></div>
+            <div class="card"><img src="assets/icons/question.svg" class="card-icon"><h3>NUH Questions</h3><p>Previous years' questions.</p><a href="content-list.html?type=NUH Question" class="btn btn-outline">View All</a></div>
+            <div class="card"><img src="assets/icons/routine.svg" class="card-icon"><h3>Routine</h3><p>Exam and class schedules.</p><a href="content-list.html?type=Routine" class="btn btn-outline">View All</a></div>
+            <div class="card"><img src="assets/icons/gallery.svg" class="card-icon"><h3>Gallery</h3><p>Photos of department life.</p><a href="content-list.html?type=Gallery Image" class="btn btn-outline">View All</a></div>
+            <div class="card"><img src="assets/icons/notice.svg" class="card-icon"><h3>Notices</h3><p>Official news and events.</p><a href="content-list.html?type=Notice" class="btn btn-outline">View All</a></div>
+        </section>
+        
+        <section class="dual-section">
+             <div class="notices-panel">
+                <h2>Latest Notices & Updates</h2>
+                <ul class="notice-list" id="notice-list">
+                    <!-- Dynamic content will be loaded here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>...</footer> <!-- Your footer content here -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="js/firebase-init.js"></script>
+    <script src="js/auth-guard.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
